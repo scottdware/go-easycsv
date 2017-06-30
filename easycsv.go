@@ -4,7 +4,6 @@ package easycsv
 
 import (
 	"encoding/csv"
-	"fmt"
 	"os"
 )
 
