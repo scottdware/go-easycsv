@@ -51,16 +51,16 @@ Columns: 4, Data: [Shepherd/Husky Male 11 Tan]
 Remember that column numbering starts at 0, so if you want to assign each column to a variable name, you can do so as follows:
 
 ```Go
-    for _, dog := range dogs {
-        // Assign variables for each column
-        breed := dog[0]
-        sex := dog[1]
-        age := dog[2]
-        color := dog[3]
+for _, dog := range dogs {
+    // Assign variables for each column
+    breed := dog[0]
+    sex := dog[1]
+    age := dog[2]
+    color := dog[3]
 
-        // Print the number of columns for each row, as well as the entire row's contents
-        fmt.Printf("Breed: %s, Sex: %s, Age: %s, Color: %s\n", breed, sex, age, color)
-    }
+    // Print the number of columns for each row, as well as the entire row's contents
+    fmt.Printf("Breed: %s, Sex: %s, Age: %s, Color: %s\n", breed, sex, age, color)
+}
 ```
 
 The above will output the following:
@@ -87,13 +87,13 @@ import (
 )
 
 func main() {
-	dogsCSV, err := easycsv.NewCSV("dogs.csv")
-	if err != nil {
-		fmt.Println(err)
-	}
+    dogsCSV, err := easycsv.NewCSV("dogs.csv")
+    if err != nil {
+        fmt.Println(err)
+    }
 
-	dogsCSV.Write("German Shepherd,Male,3,Black and Tan\n")
-	dogsCSV.Write("Shiba-Inu,Female,13,Black and Tan\n")
+    dogsCSV.Write("German Shepherd,Male,3,Black and Tan\n")
+    dogsCSV.Write("Shiba-Inu,Female,13,Black and Tan\n")
     dogsCSV.Write("Shepherd/Husky,Male,11,Tan\n")
     dogsCSV.End()
 }
