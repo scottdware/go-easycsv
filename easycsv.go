@@ -3,9 +3,16 @@
 package easycsv
 
 import (
+	"bufio"
 	"encoding/csv"
+	"fmt"
 	"os"
 )
+
+// CSV contains our buffer for writing to when creating a CSV file.
+type CSV struct {
+	buf *bufio.Writer
+}
 
 // Open takes the given path to a csv file and returns the rows as a [][]string which you can then
 // iterate over.
@@ -24,4 +31,29 @@ func Open(path string) ([][]string, error) {
 	}
 
 	return fields, nil
+}
+
+// NewCSV creates a new CSV file for writing to.
+func NewCSV(name string) (*CSV, error) {
+	csv, err := os.Create(name)
+	if err != nil {
+		return nil, err
+	}
+	defer csv.Close()
+
+	buf := bufio.NewWriter(csv)
+
+	return &CSV{
+		buf: buf,
+	}, nil
+}
+
+// Write appends the given content to the newly created CSV file.
+func (c *CSV) Write(content string) {
+	fmt.Fprintf(c.buf, content)
+}
+
+// End finishes the writing to the newly created CSV file.
+func (c *CSV) End() {
+	c.buf.Flush()
 }
