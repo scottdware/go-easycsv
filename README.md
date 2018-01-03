@@ -14,7 +14,7 @@ Shiba-Inu,Female,13,Black and Tan
 Shepherd/Husky,Male,11,Tan
 ```
 
-To read each row, we use the `Open()` function. This returns a [][]string of the contents.
+To read each row, we use the `Open()` function. This returns a `[][]string` of the contents you can easily iterate over.
 
 ```Go
 package main
