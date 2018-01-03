@@ -94,7 +94,7 @@ func main() {
 
 	dogsCSV.Write("German Shepherd,Male,3,Black and Tan\n")
 	dogsCSV.Write("Shiba-Inu,Female,13,Black and Tan\n")
-	dogsCSV.Write("Shepherd/Husky,Male,11,Tan\n")
+    dogsCSV.Write("Shepherd/Husky,Male,11,Tan\n")
     dogsCSV.End()
 }
 ```
