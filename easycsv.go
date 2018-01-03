@@ -1,5 +1,4 @@
-// Package easycsv provides a quick wrapper for opening a csv file and returning
-// the data in an easy to use, iterable way.
+// Package easycsv provides an easy to use wrapper for reading from and writing to CSV files.
 package easycsv
 
 import (
