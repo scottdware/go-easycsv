@@ -12,6 +12,7 @@ import (
 // CSV contains our buffer for writing to when creating a CSV file.
 type CSV struct {
 	Buffer *bufio.Writer
+	File   *os.File
 }
 
 // Open takes the given path to a csv file and returns the rows as a [][]string which you can then
@@ -39,12 +40,12 @@ func NewCSV(name string) (*CSV, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer csv.Close()
 
 	buf := bufio.NewWriter(csv)
 
 	return &CSV{
 		Buffer: buf,
+		File:   csv,
 	}, nil
 }
 
@@ -53,7 +54,8 @@ func (c *CSV) Write(content string) {
 	fmt.Fprintf(c.Buffer, content)
 }
 
-// End finishes the writing to the newly created CSV file.
+// End finishes the writing to the newly created CSV file, and closes it.
 func (c *CSV) End() {
 	c.Buffer.Flush()
+	c.File.Close()
 }
