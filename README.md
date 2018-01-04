@@ -16,7 +16,7 @@ Shepherd/Husky,Male,11,Tan
 
 To read each row, we use the `Open()` function. This returns a `[][]string` of the contents you can easily iterate over.
 
->NOTE: If you have a line in your CSV file that begins with a #, then that line will be ignored.
+>**NOTE**: Lines beginning with a `#` (comment) will be ignored!
 
 ```Go
 package main
