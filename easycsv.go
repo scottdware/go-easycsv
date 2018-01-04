@@ -25,6 +25,8 @@ func Open(path string) ([][]string, error) {
 	defer fn.Close()
 
 	reader := csv.NewReader(fn)
+	reader.Comment = '#'
+
 	fields, err := reader.ReadAll()
 	if err != nil {
 		return nil, err
