@@ -1,3 +1,3 @@
-module github.com/scottdware/go-easycsv
+module go-easycsv
 
 go 1.17
