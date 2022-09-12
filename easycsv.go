@@ -1,5 +1,5 @@
 // Package easycsv provides an easy to use wrapper for reading from and writing to CSV files.
-package main
+package easycsv
 
 import (
 	"bufio"
